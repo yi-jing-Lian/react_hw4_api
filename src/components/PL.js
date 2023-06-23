@@ -1,6 +1,5 @@
 import React , { useEffect, useState }from 'react';
 import { Card } from 'antd'; 
-import './PL.css';
 import '../App.css';
 import { Column } from '@ant-design/plots';
 
@@ -114,7 +113,7 @@ const PL = () => {
         <div className='card'>
             <text className='cardText'>營收淨額</text>
             <text className='amount'>
-              <h2 id='dolorsign'>$</h2>
+              <h2 id='dollarsign'>$</h2>
               <h2 class='number'style={{ color: getNumberColor(accumulatedEarnings?.netOperatingRevenue) }}>{accumulatedEarnings?.netOperatingRevenue && accumulatedEarnings.netOperatingRevenue.toLocaleString()}</h2>
             </text>
             <text className='cardText' id='percent' style={{ color: getNumberColor(accumulatedEarnings?.netOperatingRevenuePer) }}>{ accumulatedEarnings?.netOperatingRevenuePer}%</text>          
@@ -122,7 +121,7 @@ const PL = () => {
         <div className='card'>
             <text className='cardText'>營業成本</text>
             <text className='amount'>
-              <h2 id='dolorsign'>$</h2>
+              <h2 id='dollarsign'>$</h2>
               <h2 class='number' style={{ color: getNumberColor(accumulatedEarnings?.totalOperatingCost) }}>{accumulatedEarnings?.totalOperatingCost && accumulatedEarnings.totalOperatingCost.toLocaleString()}</h2>
             </text>
             <text className='cardText' id='percent' style={{ color: getNumberColor(accumulatedEarnings?.operatingCostPer) }}>{ formatNumber(accumulatedEarnings?.operatingCostPer)}%</text>          
@@ -130,7 +129,7 @@ const PL = () => {
         <div className='card'>
             <text className='cardText'>營業毛利</text>
             <text className='amount'>
-              <h2 id='dolorsign'>$</h2>
+              <h2 id='dollarsign'>$</h2>
               <h2 class='number' style={{ color: getNumberColor(accumulatedEarnings?.operatingProfit) }}>{accumulatedEarnings?.operatingProfit && accumulatedEarnings.operatingProfit.toLocaleString()}</h2>
             </text>
             <text className='cardText' id='percent' style={{ color: getNumberColor(accumulatedEarnings?.operatingProfitPer) }}>{ formatNumber(accumulatedEarnings?.operatingProfitPer)}%</text>          
@@ -138,7 +137,7 @@ const PL = () => {
         <div className='card'>
             <text className='cardText'>營業費用</text>
             <text className='amount'>
-              <h2 id='dolorsign'>$</h2>
+              <h2 id='dollarsign'>$</h2>
               <h2 class='number' style={{ color: getNumberColor(accumulatedEarnings?.operatingExpense) }}>{accumulatedEarnings?.operatingExpense && accumulatedEarnings.operatingExpense.toLocaleString()}</h2>
             </text>
             <text className='cardText' id='percent' style={{ color: getNumberColor(accumulatedEarnings?.operatingExpensePer) }}>{ formatNumber(accumulatedEarnings?.operatingExpensePer)}%</text>          
@@ -146,7 +145,7 @@ const PL = () => {
         <div className='card' id='lastcard'>
             <text className='cardText'>營業淨利</text>
             <text className='amount'>
-              <h2 id='dolorsign'>$</h2>
+              <h2 id='dollarsign'>$</h2>
               <h2 class='number' style={{ color: getNumberColor(accumulatedEarnings?.operatingNetProfit) }}>{accumulatedEarnings?.operatingNetProfit && accumulatedEarnings.operatingNetProfit.toLocaleString()}</h2>
             </text>
             <text className='cardText' id='percent' style={{ color: getNumberColor(accumulatedEarnings?.operatingNetProfitPer) }}>{ formatNumber(accumulatedEarnings?.operatingNetProfitPer)}%</text>          
@@ -156,11 +155,11 @@ const PL = () => {
 
       <br></br>
       <Card  title="每月收益" bordered={false} style={{ width: 1200 }} >
-        <Column {...config} />;
+        <Column {...config} />
       </Card>
       <br></br>
       <Card  title="每月費損" bordered={false} style={{ width: 1200 }} >
-      <Column {...config_expense} />;      
+      <Column {...config_expense} />      
       </Card>
     </div>
   );

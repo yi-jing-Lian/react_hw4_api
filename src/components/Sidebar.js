@@ -20,9 +20,9 @@ const items = [
   getItem('財務', 'sub1', <MailOutlined />, [
     getItem('綜合損益分析', '1',null,null,'/PL'),
     getItem('現金流量分析', '2',null,null,'/Cashflow'),
-    getItem('應收應付帳款', '3'),
+    getItem('應收應付帳款', '3',null,null,'/AccPayReceive'),
     getItem('產品事業表現', '4'),
-    getItem('專業事業表現', '5'),
+    getItem('專業事業表現', '5',null,null,'/ProjectPerformance'),
     getItem('零用金進出帳', '6'),
   ]),
   getItem('銷售', 'sub2', <AppstoreOutlined />, [
