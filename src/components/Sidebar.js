@@ -1,4 +1,4 @@
-import { MailOutlined,  AppstoreOutlined } from '@ant-design/icons';
+import { FaBoxOpen,FaFileAlt } from "react-icons/fa";
 import { Menu } from 'antd';
 import { useState } from 'react';
 import {Link} from "react-router-dom";
@@ -17,7 +17,7 @@ function getItem(label, key, icon, children, link) {
 }
 
 const items = [
-  getItem('財務', 'sub1', <MailOutlined />, [
+  getItem('財務', 'sub1', <FaBoxOpen />, [
     getItem('綜合損益分析', '1',null,null,'/PL'),
     getItem('現金流量分析', '2',null,null,'/Cashflow'),
     getItem('應收應付帳款', '3',null,null,'/AccPayReceive'),
@@ -25,7 +25,7 @@ const items = [
     getItem('專業事業表現', '5',null,null,'/ProjectPerformance'),
     getItem('零用金進出帳', '6'),
   ]),
-  getItem('銷售', 'sub2', <AppstoreOutlined />, [
+  getItem('銷售', 'sub2', <FaFileAlt />, [
     getItem('銷售總覽', '7'),
     getItem('銷售分析', '8'),
   ]),
@@ -52,12 +52,18 @@ const Sidebar = () => {
       openKeys={openKeys}
       onOpenChange={onOpenChange}
       style={{
-        width: 256,
+        width: 200,
+        color:'#bbc6d6',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        overflowY: 'auto',
       }}
     >
       {items.map((item) =>
         item.children ? (
-          <SubMenu key={item.key} icon={item.icon} title={item.label}>
+          <SubMenu key={item.key} icon={item.icon} title={item.label}  >
             {item.children.map((subItem) => (
                <Menu.Item key={subItem.key}><Link to={subItem.link}>{subItem.label}</Link></Menu.Item> 
             ))}

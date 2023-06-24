@@ -16,11 +16,14 @@ function App() {
         <Router>
             <Sidebar />
             <Switch>
-              <Route exact path="/"> </Route>
-              <Route path="/PL"><PL/></Route>
-              <Route path="/Cashflow"><Cashflow/></Route>
-              <Route path="/AccPayReceive"><AccPayReceive/></Route>
-              <Route path="/ProjectPerformance"><ProjectPerformance/></Route>
+              <div style={{ marginLeft: 200 }}>
+                <Route exact path="/"> </Route>
+                <Route path="/PL"><PL/></Route>
+                <Route path="/Cashflow"><Cashflow/></Route>
+                <Route path="/AccPayReceive"><AccPayReceive/></Route>
+                <Route path="/ProjectPerformance"><ProjectPerformance/></Route>
+              </div>
+              
             </Switch>
         </Router>
     </div>

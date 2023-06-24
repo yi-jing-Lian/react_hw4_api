@@ -1,6 +1,7 @@
 import React , { useEffect, useState }from 'react';
 import { Card,Table } from 'antd'; 
 import '../App.css';
+import { Pie, G2 } from '@ant-design/plots';
 
 const AccPayReceive = () => {
     const [receiveList, setreceiveList]=useState('');
@@ -115,6 +116,119 @@ const AccPayReceive = () => {
             }
         )        
     }
+    const G = G2.getEngine('canvas');
+    const cfg = {
+        appendPadding: 10,
+        data:receiveCompare,
+        angleField: 'ratio',
+        colorField: 'name',
+        radius: 0.75,
+        legend: false,
+        label: {
+          type: 'spider',
+          labelHeight: 40,
+          formatter: (data, mappingData) => {
+            const group = new G.Group({});
+            group.addShape({
+              type: 'circle',
+              attrs: {
+                x: 0,
+                y: 0,
+                width: 40,
+                height: 50,
+                r: 5,
+                fill: mappingData.color,
+              },
+            });
+            group.addShape({
+              type: 'text',
+              attrs: {
+                x: 10,
+                y: 8,
+                text: `${data.name}`,
+                fill: mappingData.color,
+              },
+            });
+            group.addShape({
+              type: 'text',
+              attrs: {
+                x: 0,
+                y: 25,
+                text: `金額：${data.amount.toLocaleString()}`,
+                fill: 'rgba(0, 0, 0, 0.65)',
+                fontWeight: 700,
+              },
+            });
+            
+            return group;
+          },
+        },
+        interactions: [
+          {
+            type: 'element-selected',
+          },
+          {
+            type: 'element-active',
+          },
+        ],
+      };
+
+      const cfg_pay = {
+        appendPadding: 10,
+        data:payCompare,
+        angleField: 'ratio',
+        colorField: 'name',
+        radius: 0.75,
+        legend: false,
+        label: {
+          type: 'spider',
+          labelHeight: 40,
+          formatter: (data, mappingData) => {
+            const group = new G.Group({});
+            group.addShape({
+              type: 'circle',
+              attrs: {
+                x: 0,
+                y: 0,
+                width: 40,
+                height: 50,
+                r: 5,
+                fill: mappingData.color,
+              },
+            });
+            group.addShape({
+              type: 'text',
+              attrs: {
+                x: 10,
+                y: 8,
+                text: `${data.name}`,
+                fill: mappingData.color,
+              },
+            });
+            group.addShape({
+              type: 'text',
+              attrs: {
+                x: 0,
+                y: 25,
+                text: `金額：${data.cost_amount.toLocaleString()}`,
+                fill: 'rgba(0, 0, 0, 0.65)',
+                fontWeight: 700,
+              },
+            });
+            
+            return group;
+          },
+        },
+        interactions: [
+          {
+            type: 'element-selected',
+          },
+          {
+            type: 'element-active',
+          },
+        ],
+      };
+      
     const productSalesRecordlength=receiveDetail?.productSalesRecord?.length
     for(let i=0;i<productSalesRecordlength;i++){
         receiveDetailData.push(
@@ -201,10 +315,10 @@ const AccPayReceive = () => {
             </Card>
             <div className='twoCard'>
                 <Card  title="應收項目比較" bordered={false} style={{ width: 590 }} id='bigcard'>
-                
+                    <Pie {...cfg} />
                 </Card>
                 <Card  title="應付項目比較" bordered={false} style={{ width: 590 }}id='bigcard'>
-                
+                <Pie {...cfg_pay} />
                 </Card>
             </div>
             <Card  title="應收項目詳細資料" bordered={false} style={{ width: 1200 }} id='bigcard'>

@@ -302,6 +302,16 @@ const Cashflow = () => {
     legend: {
       position: 'right-top',
     },
+    xAxis: {
+      title: {
+        text: '金額',
+      },
+    },
+    yAxis: {
+      title: {
+        text: '項目',
+      },
+    },
   };
 
   const outflowAnalysticConfig = {
@@ -311,6 +321,16 @@ const Cashflow = () => {
     seriesField: 'name',
     legend: {
       position: 'right-top',
+    },
+    xAxis: {
+      title: {
+        text: '金額',
+      },
+    },
+    yAxis: {
+      title: {
+        text: '項目',
+      },
     },
   };
 
@@ -336,6 +356,16 @@ const Cashflow = () => {
     point: {
       shape: 'breath-point',
     },
+    xAxis: {
+      title: {
+        text: '時間',
+      },
+    },
+    yAxis: {
+      title: {
+        text: '金額',
+      },
+    },
   };
 
   const futureOutflowConfig = {
@@ -360,19 +390,27 @@ const Cashflow = () => {
     point: {
       shape: 'breath-point',
     },
+    xAxis: {
+      title: {
+        text: '時間',
+      },
+    },
+    yAxis: {
+      title: {
+        text: '金額',
+      },
+    },
   };
       
   return (
     <div className='page'>
-      <Card  title="每月現金流量趨勢" bordered={false} style={{ width: 1200 }} >
+      <Card  title="每月現金流量趨勢" bordered={false} style={{ width: 1200 }} id='bigcard'>
         <Line {...config} />
       </Card>
-      <br></br>
-      <Card  title="每月淨現金、現金水位趨勢" bordered={false} style={{ width: 1200 }} >
+      <Card  title="每月淨現金、現金水位趨勢" bordered={false} style={{ width: 1200 }}id='bigcard' >
         <Line {...levelTrendConfig} />
       </Card>
-      <br></br>
-      <div className='twoCard'>
+      <div className='twoCard' id='bigcard'>
         <Card  title="現金流入項目比較" bordered={false} style={{ width: 590 }} >
           <Bar {...inflowAnalysticConfig} />
         </Card>
@@ -380,8 +418,7 @@ const Cashflow = () => {
           <Bar {...outflowAnalysticConfig} />
         </Card>
       </div>
-      <br></br>
-      <div className='twoCard'>
+      <div className='twoCard' id='bigcard'>
         <Card  title="未來預計現金流入量" bordered={false} style={{ width: 590 }} >
           <Line {...futureInflowConfig} />
         </Card>

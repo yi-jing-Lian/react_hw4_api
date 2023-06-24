@@ -89,6 +89,15 @@ const PL = () => {
     xAxis: {
       // type: 'timeCat',
       tickCount: 7,
+      title: {
+        text: '時間',
+      },
+    },
+    yAxis: {
+      tickCount: 7,
+      title: {
+        text: '金額',
+      },
     },
   };
 
@@ -99,8 +108,17 @@ const PL = () => {
     yField: 'value',
     seriesField: 'name',
     xAxis: {
-      // type: 'timeCat',
       tickCount: 7,
+      title: {
+        text: '時間',
+        
+      },
+    },
+    yAxis: {
+      tickCount: 7,
+      title: {
+        text: '金額',
+      },
     },
   };
   return (
@@ -108,7 +126,7 @@ const PL = () => {
       <h1>綜合損益分析</h1>
       (所有資料累積至yyyy/mm/dd)
       <h3 className='pl'>累計損益</h3>
-      <Card  title="累計損益" bordered={false} style={{ width: 1200 }} >
+      <Card  title="累計損益" bordered={false} style={{ width: 1200 }} id='bigcard'>
       <div className='container'>
         <div className='card'>
             <text className='cardText'>營收淨額</text>
@@ -153,11 +171,9 @@ const PL = () => {
       </div>
       </Card>
 
-      <br></br>
-      <Card  title="每月收益" bordered={false} style={{ width: 1200 }} >
+      <Card  title="每月收益" bordered={false} style={{ width: 1200 }} id='bigcard' >
         <Column {...config} />
       </Card>
-      <br></br>
       <Card  title="每月費損" bordered={false} style={{ width: 1200 }} >
       <Column {...config_expense} />      
       </Card>
